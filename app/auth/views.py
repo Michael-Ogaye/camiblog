@@ -33,8 +33,15 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(email = form.email.data).first()
         if user is not None and user.check_password(form.password.data):
-            login_user(user)
+            login_user(user,form.remember.data)
             next = request.args.get("next")
             return redirect(next or url_for('main.index'))
         flash('Invalid email address or Password.')    
     return render_template('auth/login.html', form=form)
+
+
+@auth.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('main.index'))
