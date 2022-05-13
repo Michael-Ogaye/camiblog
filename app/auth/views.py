@@ -15,11 +15,14 @@ from .. import db
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(username =form.username.data, email = form.email.data)
-        user.set_password(form.password1.data)
-        db.session.add(user)
-        db.session.commit()
-        return redirect(url_for('auth.login'))
+        user=User.query.filter_by(username=form.username.data).first()
+        if user is None:
+            user = User(username =form.username.data, email = form.email.data)
+            user.set_password(form.password1.data)
+            user.save()
+            return redirect(url_for('auth.login'))
+        else:
+            flash('That username is in use try a new one')
     return render_template('auth/signup.html', form=form)
 
 
