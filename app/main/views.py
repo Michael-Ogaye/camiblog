@@ -5,7 +5,7 @@ from .forms import UpdateProfile,Makepost
 from .. import db
 from ..request import get_quotes
 from flask_login import login_required,current_user
-from ..emails import mail_message
+# from ..emails import mail_message
 import secrets
 import os
 from PIL import Image
@@ -74,8 +74,8 @@ def new_blog():
         user_id =  current_user._get_current_object().id
         blog = Blog(title=title,content=content,user_id=user_id)
         blog.save()
-        for subscriber in subscribers:
-            mail_message("New Blog Post","email/new_blog",subscriber.email,blog=blog)
+        # for subscriber in subscribers:
+        #     mail_message("New Blog Post","email/new_blog",subscriber.email,blog=blog)
         return redirect(url_for('main.index'))
         flash('You Posted a new Blog')
     return render_template('newblog.html', form = form)
@@ -120,7 +120,7 @@ def subscribe():
     email = request.form.get('subscriber')
     new_subscriber = Subscriber(email = email)
     new_subscriber.save_subscriber()
-    mail_message("Subscribed to D-Blog","email/welcome_subscriber",new_subscriber.email,new_subscriber=new_subscriber)
+    # mail_message("Subscribed to D-Blog","email/welcome_subscriber",new_subscriber.email,new_subscriber=new_subscriber)
     flash('Sucessfuly subscribed')
     return redirect(url_for('main.index'))
 
