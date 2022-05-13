@@ -12,7 +12,7 @@ login_manager = LoginManager()
 login_manager.session_protection = 'strong'
 login_manager.login_view = 'auth.login'
 db = SQLAlchemy()
-from app.models import User
+from app.models import User,Blog,Comment,Subscriber
 mail = Mail()
 bootstap = Bootstrap()
 
