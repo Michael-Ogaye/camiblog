@@ -1,9 +1,9 @@
 {%extends 'base.html'%}
-{%title block%}
+{% block title%}
 <title>Camiblog</title>
 {%endblock%}
 
-{%content block%}
+
 
 {% block content %}
     <div class="container landing">
@@ -12,7 +12,7 @@
                 <div class="col-md-3 "><a class="btn btn-sm btn-info " id="ref" href="{{url_for('main.new_blog')}}">Post</a></div>
                 {% endif %}
             
-            <div class="col-md-9 "><h1 >Welcome to D-Blog</h1></div>
+            <div class="col-md-9 "><h1 >Camiblog</h1></div>
         </div>
 
         <div class="row">
