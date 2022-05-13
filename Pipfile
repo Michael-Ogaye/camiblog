@@ -18,6 +18,7 @@ flask-wtf = "*"
 flask-bootstraps = "*"
 flask-uploads = "*"
 flask-mail = "*"
+pillow = "*"
 
 [dev-packages]
 
