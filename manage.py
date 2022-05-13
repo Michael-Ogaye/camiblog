@@ -1,13 +1,13 @@
 from flask_script import Manager,Server
 from app.models import User
-from flask_migrate import Migrate, MigrateCommand
+from flask_migrate import Migrate
 from app import create_app,db
 
-app = create_app()
+app = create_app('development')
 
 manager =  Manager(app)
 migrate = Migrate(app,db)
-manager.add_command('db',MigrateCommand)
+# manager.add_command('db',MigrateCommand)
 manager.add_command('run',Server(use_debugger=True))
 
 @manager.shell
