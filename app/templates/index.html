@@ -43,14 +43,16 @@ background-color:rgb(9, 9, 32);
                                     <p id="usern"><a href="{{url_for('main.user_posts',username = blog.user.username)}}"><span  style="color: blue"><strong>{{blog.user.username}}</strong></span> </a> </p> 
                             </div>
                             <div class="col-md-10 pr-4 d-justify userblog">
-                                <p>Posted on : {{blog.posted.strftime('%d-%m-%Y')}}</p>
-                                <h4><a href="{{url_for('main.blog',id = blog.id)}}">{{blog.title }}</a></h4>
+                                <p class="text-success text-underline">created on : {{blog.posted.strftime('%d-%m-%Y')}}</p>
+                                <hr>
+                                <a href="{{url_for('main.blog',id = blog.id)}}">{{blog.title }}</a>
+                                <br>
                                 <p>{{blog.content}}</p>
-                                <p> <a class="btn btn-sm btn-info" href="{{url_for('main.blog',id = blog.id)}}" > Comment</a> {{blog.comment.count()}} Comments</p>
+                                <p> <a class="btn btn-sm btn-primary rounded-pill" href="{{url_for('main.blog',id = blog.id)}}" ><i class="fa-solid fa-comments"></i></a> <span class="ms-4 text-success">{{blog.comment.count()}} Comments</span></p>
                                 
                             </div>
                         </div> 
-                        <hr>
+                        
                     </div>
                        
                 {% endfor %}
@@ -68,7 +70,7 @@ background-color:rgb(9, 9, 32);
                 {% endfor %}  
 
             </div>
-            <div class="col-md-4 ">
+            <div class="col-md-4 mt-4">
                 <div class="container">
                     <div class="card cardquote p-5 qt">
                         <div class="card-title">
@@ -79,19 +81,19 @@ background-color:rgb(9, 9, 32);
                     </div>
                 </div>
                 <div class="container-fluid">
-                    <!-- {% for message in get_flashed_messages() %}
+                    {% for message in get_flashed_messages() %}
                     <div class="alert alert-success">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                     {{ message }}
                     </div>
                     {% endfor %}
-                    <form class="form-inline ml-2" action="{{url_for('main.subscribe')}}" method="POST"> -->
-                        <div class="md-form form-group">
+                    <form class="form-inline ml-2" action="{{url_for('main.subscribe')}}" method="POST">
+                        <div class="md-form form-group mt-5">
                             <label class="white-color">Email Address...</label>
                             <input type="email"  class="form-control " name ="subscriber" required>
                         </div>
-                        <div class="md-form form-group">
-                            <button class="btn btn-sm btn-outline-info" id="subs">Subscribe</button>
+                        <div class="md-form form-group mt-3 mx-auto w-100 text-center">
+                            <button class="btn btn-sm btn-primary d-block mx-ato w-100" id="subs">Subscribe</button>
                         </div>
                     </form>
                 </div>

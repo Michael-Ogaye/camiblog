@@ -68,12 +68,14 @@ nav a.lo{
 
        
         {% else %}
+        <div class="d-flex">
           <li class="nav-item">
-              <a  class="nav-link mr-1" href="{{url_for('auth.register')}}"><i class="fas fa-user-plus"></i></i>&nbsp; <strong>Sign Up</strong></a>
+              <a  class="nav-link me-2 btn p-2" href="{{url_for('auth.register')}}"><i class="fas fa-user-plus"></i></i>&nbsp; Sign Up</a>
           </li>
           <li class="nav-item">
-              <a  class="nav-link mr-5" href="{{url_for('auth.login')}}" ><i class="fas fa-sign-in-alt "></i>&nbsp; <strong>Log In</strong></a>
+              <a  class="nav-link me-2 ms-4 btn p-2" href="{{url_for('auth.login')}}" ><i class="fas fa-sign-in-alt "></i>&nbsp; Log In</a>
           </li>
+        </div>
         {%endif%}
 
     </ul>
