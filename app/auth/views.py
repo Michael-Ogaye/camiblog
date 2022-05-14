@@ -17,8 +17,8 @@ def register():
     if form.validate_on_submit():
         user=User.query.filter_by(username=form.username.data).first()
         if user is None:
-            user = User(username =form.username.data, email = form.email.data)
-            user.set_password(form.password1.data)
+            user = User(username =form.username.data, email = form.email.data,password=form.password1.data)
+            # user.set_password(form.password1.data)
             user.save()
             return redirect(url_for('auth.login'))
         else:
@@ -32,8 +32,8 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email = form.email.data).first()
-        if user is not None and user.check_password(form.password.data):
-            login_user(user,form.remember.data)
+        if user != None and user.verify_password(form.password.data):
+            login_user(user, form.remember.data)
             next = request.args.get("next")
             return redirect(next or url_for('main.index'))
         flash('Invalid email address or Password.')    

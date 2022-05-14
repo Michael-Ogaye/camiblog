@@ -1,8 +1,10 @@
 {%extends 'base.html'%}
 
 {%block content%}
-<h1><a href="{{ url_for('auth.register') }}">Create a new Account!</a></h1>
-<form action="" method="post">
+
+<p class="text-center text-success">Login</p>
+
+<form action="" method="post" class="text-center mx-auto">
    {{ form.hidden_tag() }}
    <div>
       {{ form.email(placeholder="email",
@@ -31,14 +33,23 @@
       <p>{{ error }}</p>
       {% endfor %}
    </div>
-   <p>{{ form.remember() }} {{ form.remember.label }}</p>
-   <p>{{ form.submit(style ='background-color: #4CAF50;
+   <p>{{ form.remember( class="form-check-input text-primary bg-outline-primary") }} {{ form.remember.label }}</p>
+   <a href="{{ url_for('auth.register') }}">Create a new Account!</a>
+   <p>{{ form.submit( class='btn btn-primary',style ='
       color: white;
       width: 50%;
       padding: 14px 20px;
       margin: 8px 0;
       border: none;
-      border-radius: 4px') }}
+      border-radius: 4px;') }}
    </p>
 </form>
+
+
+
+
+
+
+
+   
 {%endblock%}

@@ -3,9 +3,9 @@
 
 {%block content %}
 
-<h1 style="text-align: justify; color: blue;">Create an Account</h1>
+<h6 style="text-align: justify; color: blue;" class="text-center fs-3 my-4">Signup</h6>
 <br>
-<form action="" method="post">
+<form action="" method="post" class="mx-auto text-center">
    {{ form.hidden_tag() }}
    <div>
       {{ form.username(placeholder="username",
@@ -63,8 +63,8 @@
       {% endfor %}
    </div>
    <br>
-   <div>{{ form.submit(
-      style ='background-color: #4CAF50;
+   <div>{{ form.submit(class="btn btn-primary",
+      style ='
       color: white;
       width: 50%;
       padding: 14px 20px;
@@ -74,7 +74,7 @@
    </div>
 </form>
 <p></p>
-<h3 style = "color: blue; margin-left:100px;"><a href="{{ url_for('auth.login') }}">Already have an account?</a></h3>
+<a class="d-block  mx-auto text-center" href="{{ url_for('auth.login') }}">Already have an account?</a>
 
 
 {%endblock%}
