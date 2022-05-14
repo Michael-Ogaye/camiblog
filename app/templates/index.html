@@ -61,13 +61,13 @@
                     </div>
                 </div>
                 <div class="container-fluid">
-                    {% for message in get_flashed_messages() %}
+                    <!-- {% for message in get_flashed_messages() %}
                     <div class="alert alert-success">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                     {{ message }}
                     </div>
                     {% endfor %}
-                    <form class="form-inline ml-2" action="{{url_for('main.subscribe')}}" method="POST">
+                    <form class="form-inline ml-2" action="{{url_for('main.subscribe')}}" method="POST"> -->
                         <div class="md-form form-group">
                             <label class="white-color">Email Address...</label>
                             <input type="email"  class="form-control " name ="subscriber" required>

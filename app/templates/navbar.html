@@ -20,15 +20,28 @@
       <ul class="navbar-nav ml-auto">
         {% if current_user.is_authenticated %}
 
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" style= 'margin-right:30px' data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user"></i>&nbsp;<strong>{{current_user.username}}</strong> </a>
-        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-          <a class="dropdown-item" href="{{url_for('main.profile',name=current_user.username)}}"><i class="far fa-user"></i>&nbsp; My account</a>
-          <a class="dropdown-item" href="{{url_for('auth.logout')}}"><i class="fas fa-sign-out-alt"></i>&nbsp; Log out</a>
-        </div>
-        </li>
+        <!-- Example split primary button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-primary">Action</button>
+  <button
+    type="button"
+    class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+    data-mdb-toggle="dropdown"
+    aria-expanded="false"
+  >
+    <span class="visually-hidden">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">{{current_user.username}}</a></li>
+    <li><a class="dropdown-item" href="{{url_for('main.profile',name=current_user.username)}}"><i class="far fa-user"></i>&nbsp; My account</a></li>
+    <li><hr class="dropdown-divider" /></li>
+    
+    <li><a class="dropdown-item text-danger" href="{{url_for('auth.logout')}}"><i class="fas fa-sign-out-alt"></i>&nbsp; Log out</a></li>
+    
+  </ul>
+</div>
+
+       
         {% else %}
           <li class="nav-item">
               <a  class="nav-link mr-1" href="{{url_for('auth.register')}}"><i class="fas fa-user-plus"></i></i>&nbsp; <strong>Sign Up</strong></a>
@@ -40,6 +53,8 @@
 
     </ul>
     </div>
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </nav>
 
 
