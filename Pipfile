@@ -19,6 +19,7 @@ flask-bootstraps = "*"
 flask-uploads = "*"
 flask-mail = "*"
 pillow = "*"
+flask-ckeditor = "*"
 
 [dev-packages]
 

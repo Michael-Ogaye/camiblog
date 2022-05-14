@@ -14,6 +14,16 @@
           <i class="fas fa-search"></i>
         </span>
       </form>
+      <div class="other">
+        <a href="{{url_for('main.new_blog')}}"></a>
+        <a href="{{url_for('main.profile')}}"></a>
+        <a href="{{url_for('main.updateprofile')}}"></a>
+        <a href="{{url_for('main.comment')}}"></a>
+          
+          
+
+        </ul>
+      </div>
       
 
 
@@ -22,7 +32,7 @@
 
         <!-- Example split primary button -->
 <div class="btn-group">
-  <button type="button" class="btn btn-primary">Action</button>
+  <button type="button" class="btn btn-primary">{{current_user.username}}</button>
   <button
     type="button"
     class="btn btn-primary dropdown-toggle dropdown-toggle-split"
