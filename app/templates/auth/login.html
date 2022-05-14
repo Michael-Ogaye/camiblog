@@ -1,7 +1,7 @@
 {%extends 'base.html'%}
 
-{%content block%}
-<h1><a href="{{ url_for('auth.signup') }}">Create a new Account!</a></h1>
+{%block content%}
+<h1><a href="{{ url_for('auth.register') }}">Create a new Account!</a></h1>
 <form action="" method="post">
    {{ form.hidden_tag() }}
    <div>

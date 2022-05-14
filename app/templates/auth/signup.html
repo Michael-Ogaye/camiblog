@@ -1,7 +1,7 @@
-{%extend 'base.html'%}
+{% extends 'base.html'%}
 
 
-{%content block %}
+{%block content %}
 
 <h1 style="text-align: justify; color: blue;">Create an Account</h1>
 <br>
@@ -74,7 +74,7 @@
    </div>
 </form>
 <p></p>
-<h3 style = "color: blue; margin-left:100px;"><a href="{{ url_for('login') }}">Already have an account?</a></h3>
+<h3 style = "color: blue; margin-left:100px;"><a href="{{ url_for('auth.login') }}">Already have an account?</a></h3>
 
 
-{%enblock%}
+{%endblock%}
