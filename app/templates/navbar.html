@@ -1,5 +1,14 @@
 
+<style>
+nav a.lo{
+  text-decoration: none;
+  margin-top: 2%;
+  color: darkblue;
+}
 
+
+
+</style>
 <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
       <form class="d-flex input-group w-auto">
@@ -14,10 +23,12 @@
           <i class="fas fa-search"></i>
         </span>
 
-        <a href="{{url_for('main.new_blog')}}">Make a blog</a>
-        <a href="{{url_for('main.profile')}}">Profile</a>
-        <a href="#">update</a>
-        <a href="#">comment</a>
+
+
+
+        <a href="{{url_for('main.index')}}" class="d-block lo ms-3 me-3">Home</a>
+        <a href="{{url_for('main.profile')}}" class="lo">Profile</a>
+        
           
 
       </form>
@@ -45,6 +56,7 @@
     <span class="visually-hidden">Toggle Dropdown</span>
   </button>
   <ul class="dropdown-menu">
+    
     <li><a class="dropdown-item" href="#">{{current_user.username}}</a></li>
     <li><a class="dropdown-item" href="{{url_for('main.profile',name=current_user.username)}}"><i class="far fa-user"></i>&nbsp; My account</a></li>
     <li><hr class="dropdown-divider" /></li>
@@ -91,4 +103,4 @@
 
 
 
-<i class="fab fa-bandcamp"></i>
+

@@ -6,11 +6,28 @@
 
 
 {% block content %}
+<style>
+.qt{
+    /* clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%); */
+color: white;
+background-color:rgb(9, 9, 32);
+
+}
+</style>
+
+
+
+
+
+
+
     <div class="container landing">
         <div class="row ">
                 {% if current_user.is_authenticated %}
-                <div class="col-md-3 "><a class="btn btn-sm btn-info " id="ref" href="{{url_for('main.new_blog')}}">Post</a></div>
+                <div class="col-md-3 "><a class="btn btn-sm btn-outline-success " id="ref" href="{{url_for('main.new_blog')}}">Newblog<i class="fa-solid fa-plus ms-2 text-success"></i></a></div>
                 {% endif %}
+
+                <i class="fab fa-bandcamp"></i>
             
             
         </div>
@@ -20,14 +37,14 @@
                 {% for blog in blogs.items %}
                     <div class="container bg mb-2">
                         <hr>
-                        <div class="row ">
+                        <div class="row bg-light p-5">
                             <div class="col-md-2 ">
                                     <img class="rounded-circle blog-img mr-10" src="{{ url_for('static', filename='photos/' + blog.user.profile_pic_path) }}">
-                                    <p id="usern"><a href="{{url_for('main.user_posts',username = blog.user.username)}}"><span  style="color: blue"><strong>{{blog.user.username | title}}</strong></span> </a> </p> 
+                                    <p id="usern"><a href="{{url_for('main.user_posts',username = blog.user.username)}}"><span  style="color: blue"><strong>{{blog.user.username}}</strong></span> </a> </p> 
                             </div>
                             <div class="col-md-10 pr-4 d-justify userblog">
                                 <p>Posted on : {{blog.posted.strftime('%d-%m-%Y')}}</p>
-                                <h4><a href="{{url_for('main.blog',id = blog.id)}}">{{blog.title | upper}}</a></h4>
+                                <h4><a href="{{url_for('main.blog',id = blog.id)}}">{{blog.title }}</a></h4>
                                 <p>{{blog.content}}</p>
                                 <p> <a class="btn btn-sm btn-info" href="{{url_for('main.blog',id = blog.id)}}" > Comment</a> {{blog.comment.count()}} Comments</p>
                                 
@@ -51,13 +68,14 @@
                 {% endfor %}  
 
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 ">
                 <div class="container">
-                    <div class="card cardquote">
+                    <div class="card cardquote p-5 qt">
                         <div class="card-title">
-                            <p>A quote by: <span style="color: rgb(3, 3, 3)">{{quote.author}}</span> </p>
+                            <p>A quote by: <span style="">{{quote.author}}</span> </p>
                         </div>
-                        <p class="card-text text-dark">{{quote.quote}}</p>
+                        <hr>
+                        <p class="card-text text-light">{{quote.quote}}</p>
                     </div>
                 </div>
                 <div class="container-fluid">
