@@ -3,7 +3,7 @@ from app.main import main
 from app.models import User,Blog,Comment,Subscriber
 from .forms import UpdateProfile,Makepost
 from .. import db
-from ..request import get_quotes
+from ..request import get_quotes,setInterval
 from flask_login import login_required,current_user
 # from ..emails import mail_message
 import secrets
@@ -13,6 +13,7 @@ from PIL import Image
 @main.route('/')
 def index():
     quotes = get_quotes()
+    # quotes=setInterval(get_quotes,5)
     page = request.args.get('page',1, type = int )
     blogs = Blog.query.order_by(Blog.posted.desc()).paginate(page = page, per_page = 3)
     return render_template('index.html', quote = quotes,blogs=blogs)

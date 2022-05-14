@@ -12,7 +12,7 @@
                 <div class="col-md-3 "><a class="btn btn-sm btn-info " id="ref" href="{{url_for('main.new_blog')}}">Post</a></div>
                 {% endif %}
             
-            <div class="col-md-9 "><h1 >Camiblog</h1></div>
+            
         </div>
 
         <div class="row">
@@ -55,9 +55,9 @@
                 <div class="container">
                     <div class="card cardquote">
                         <div class="card-title">
-                            <h4>A quote by: <span style="color: rgb(3, 3, 3)">{{quote.author}}</span> </h4>
+                            <p>A quote by: <span style="color: rgb(3, 3, 3)">{{quote.author}}</span> </p>
                         </div>
-                        <p class="card-text">{{quote.quote}}</p>
+                        <p class="card-text text-dark">{{quote.quote}}</p>
                     </div>
                 </div>
                 <div class="container-fluid">
