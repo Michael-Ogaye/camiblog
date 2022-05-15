@@ -29,6 +29,10 @@ nav a.lo{
         <a href="{{url_for('main.index')}}" class="d-block lo ms-3 me-3">Home</a>
         <a href="{{url_for('main.profile')}}" class="lo">Profile</a>
         
+        <a href="{{url_for('main.new_blog')}}" class="lo ms-3 me-2">Create-Blog</a>
+        <i class="fab fa-bandcamp mt-3 ms-2"></i>
+        
+        
           
 
       </form>
@@ -57,8 +61,8 @@ nav a.lo{
   </button>
   <ul class="dropdown-menu">
     
-    <li><a class="dropdown-item" href="#">{{current_user.username}}</a></li>
-    <li><a class="dropdown-item" href="{{url_for('main.profile',name=current_user.username)}}"><i class="far fa-user"></i>&nbsp; My account</a></li>
+    <li><a class="dropdown-item" href="#">Account</a></li>
+    <li><a class="dropdown-item" href="{{url_for('main.profile',name=current_user.username)}}"><i class="far fa-user"></i>&nbsp;Update Profile</a></li>
     <li><hr class="dropdown-divider" /></li>
     
     <li><a class="dropdown-item text-danger" href="{{url_for('auth.logout')}}"><i class="fas fa-sign-out-alt"></i>&nbsp; Log out</a></li>
