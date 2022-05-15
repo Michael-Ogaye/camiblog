@@ -22,6 +22,7 @@ def save_picture(form_picture):
     _, f_ext = os.path.splitext(form_picture.filename)
     picture_filename = random_hex + f_ext
     picture_path = os.path.join('app/static/images', picture_filename)
+    form_picture.save(picture_path)
     
     output_size = (200, 200)
     i = Image.open(form_picture)
@@ -47,7 +48,7 @@ def profile():
         form.username.data = current_user.username
         form.email.data = current_user.email
         form.bio.data = current_user.bio
-    profile_pic_path = url_for('static',filename = 'photos/'+ current_user.profile_pic_path) 
+    profile_pic_path = url_for('static',filename = 'images/'+ current_user.profile_pic_path) 
     return render_template('profile/profile.html', profile_pic_path=profile_pic_path, form = form)
 
 @main.route('/user/<name>/updateprofile', methods = ['POST','GET'])
